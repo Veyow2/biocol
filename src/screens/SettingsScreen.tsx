@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const SearchScreen = () => {
+const SettingsScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Page de recherche</Text>
+      <Text>Paramètres</Text>
     </View>
   );
 };
 
-export default SearchScreen;
+export default SettingsScreen;
 
 const styles = StyleSheet.create({
   container: {

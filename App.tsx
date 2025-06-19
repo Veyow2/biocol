@@ -1,12 +1,14 @@
 import React from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
-import SearchScreen from './src/screens/SearchScreen';
+import { StatusBar } from 'react-native';
+import AppNavigator from './src/navigation/AppNavigator';
+import { enableScreens } from 'react-native-screens';
+enableScreens(); // <-- tout en haut de App.tsx
 
 export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <>
       <StatusBar barStyle="dark-content" />
-      <SearchScreen />
-    </SafeAreaView>
+      <AppNavigator />
+    </>
   );
 }
