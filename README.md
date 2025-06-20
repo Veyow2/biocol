@@ -1,97 +1,108 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+🌿 BIOCOL – Trouve des producteurs bio locaux facilement
+BIOCOL est une application mobile développée en React Native avec TypeScript, visant à connecter les consommateurs avec les producteurs biologiques autour d’eux. Grâce à une carte interactive, une recherche intelligente, un système de favoris et une UX intuitive, l’utilisateur peut visualiser et localiser les producteurs certifiés bio à proximité.
 
-# Getting Started
+🛠️ Stack Technique
+Outil / Langage	Usage
+React Native (TypeScript)	Développement mobile cross-platform
+Leaflet via WebView	Affichage dynamique de la carte
+REST API Agence Bio	Données publiques des producteurs bio
+React Navigation	Navigation entre les vues
+SQLite	Stockage local (pour extensions futures)
+React Context	Gestion globale des favoris
+Icons (Ionicons)	Interface graphique
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+✨ Fonctionnalités principales
+📍 Localisation des producteurs
+Affichage des producteurs bio sur une carte interactive.
 
-## Step 1: Start Metro
+Utilisation de la géolocalisation de l’utilisateur pour centrer la carte.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+Les producteurs changent automatiquement selon la zone visible.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+🔎 Recherche et filtrage
+Recherche par nom ou ville dans la liste.
 
-```sh
-# Using npm
-npm start
+Tri dynamique des résultats selon plusieurs critères (distance, nom...).
 
-# OR using Yarn
-yarn start
-```
+Jauge de rayon personnalisable (ex : 5 à 100 km).
 
-## Step 2: Build and run your app
+💚 Favoris
+Ajout/suppression de favoris avec un simple clic sur un cœur.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Les producteurs favoris sont persistés localement (AsyncStorage).
 
-### Android
+Vue dédiée : écran “Favoris” pour tout retrouver rapidement.
 
-```sh
-# Using npm
-npm run android
+Barre de recherche intégrée à la vue Favoris.
 
-# OR using Yarn
-yarn android
-```
+🗺️ Vue détaillée
+Chaque producteur possède une fiche détaillée :
 
-### iOS
+Activités
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+Adresse
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+Lieu de production
 
-```sh
-bundle install
-```
+Certificats (organisme, date)
 
-Then, and every time you update your native dependencies, run:
+Un bouton "Voir carte" permet de localiser un producteur depuis la liste.
 
-```sh
-bundle exec pod install
-```
+🧭 Navigation intuitive
+Barre de navigation bas (TabBar) avec deux vues :
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+Recherche
 
-```sh
-# Using npm
-npm run ios
+Favoris
 
-# OR using Yarn
-yarn ios
-```
+Navigation stackée vers la fiche de détail.
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+🔧 Installation & Lancement
+1. Clone le dépôt
+   
+git clone https://github.com/ton-compte/biocol.git
+cd biocol
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+3. Installe les dépendances
 
-## Step 3: Modify your app
+npm install
 
-Now that you have successfully run the app, let's make changes!
+4. Lancer l’application
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+npx react-native run-android
+⚠️ Assure-toi d’avoir un device ou un émulateur connecté (et le débogage USB activé)
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+📦 Structure du projet
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+biocol/
+├── src/
+│   ├── screens/              # Pages principales (Recherche, Favoris, Détail)
+│   ├── components/           # Composants UI réutilisables
+│   ├── navigation/           # Configuration de navigation
+│   ├── services/             # API Agence Bio, DB locale (SQLite)
+│   ├── context/              # Contexte global pour les favoris
+│   ├── types/                # Types TypeScript centralisés
+├── android/                  # Projet Android natif
+├── assets/                  # Icônes, images
+└── App.tsx                  # Point d’entrée principal
+🔐 Permissions Android
+L’application demande :
 
-## Congratulations! :tada:
+ACCESS_FINE_LOCATION : pour centrer la carte autour de l’utilisateur
 
-You've successfully run and modified your React Native App. :partying_face:
+Assure-toi d’avoir bien accepté l’autorisation sur ton téléphone.
 
-### Now what?
+📈 Fonctionnalités à venir
+Connexion / compte utilisateur
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+Filtres supplémentaires (certifications, types d’activités)
 
-# Troubleshooting
+Partage de producteur
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+Notifications (ex : marchés bio à venir)
 
-# Learn More
+Version iOS
 
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+👨‍💻 Auteur
+Valentin PEREIRA
+Brandon MENU
