@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import AppNavigator from './src/navigation/AppNavigator';
 import { initDatabase } from './src/services/sqlite/db';
+import { FavoritesProvider } from './src/context/FavoritesContext';
 
 export default function App() {
   useEffect(() => {
@@ -9,9 +10,9 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
+    <FavoritesProvider>
       <AppNavigator />
-    </>
+      <StatusBar barStyle="dark-content" />
+    </FavoritesProvider>
   );
 }
